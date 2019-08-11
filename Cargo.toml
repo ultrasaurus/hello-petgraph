@@ -5,3 +5,4 @@ authors = ["Sarah Allen <sarah@ultrasaurus.com>"]
 edition = "2018"
 
 [dependencies]
+petgraph = "0.4.13"
