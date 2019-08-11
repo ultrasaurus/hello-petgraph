@@ -1,0 +1,7 @@
+[package]
+name = "hello-petgraph"
+version = "0.1.0"
+authors = ["Sarah Allen <sarah@ultrasaurus.com>"]
+edition = "2018"
+
+[dependencies]
