@@ -40,11 +40,9 @@ fn parse_line<'a, 'b>(input: &'a str) -> Cow<'b, Command> {
 
 fn main() {
     println!("hello graph!");
-    //let mut g = Graph::<&str, &str>::new();
+    let mut g = Graph::<String, String>::new();
 
     print_help();
-    // let mut command;
-    // let mut args:Vec<&str>;
     let mut input = String::new();
     loop {
         input.clear();
@@ -57,7 +55,7 @@ fn main() {
             Command::Add(args) => {
                 for s in args {
                     println!("adding {}", s);
-                    //g.add_node(s);
+                    g.add_node(s.to_string());
                 }
             },
             Command::Connect => (),
