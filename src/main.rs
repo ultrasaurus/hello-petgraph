@@ -1,6 +1,5 @@
 use petgraph::Graph;
 use std::io;
-use std::borrow::Cow;
 
 #[derive(Debug, Clone)]
 enum Command<'a> {
@@ -20,7 +19,7 @@ impl Command<'_> {
         println!("exit/x - quits the program");
         println!("-----");
     }
-    pub fn parse_line<'a, 'b>(input: &'a str) -> Cow<'b, Command> {
+    pub fn parse_line<'a, 'b>(input: &'a str) -> Command {
         let mut iter = input.split_whitespace();
         let command_str = iter.next().unwrap_or("");
         let args:Vec<&str> = iter.collect();
@@ -34,7 +33,7 @@ impl Command<'_> {
                 Command::Unknown
             }
         };
-        return Cow::Owned(command);
+        return command;
     }
 }
 
@@ -46,7 +45,7 @@ fn main() {
     loop {
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("read from stdin");
-        let command = Command::parse_line(&input.as_str()).into_owned();
+        let command = Command::parse_line(&input.as_str());
 
         match command {
             Command::Exit => break,
