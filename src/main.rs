@@ -43,9 +43,8 @@ fn main() {
     let mut g = Graph::<String, String>::new();
 
     print_help();
-    let mut input = String::new();
     loop {
-        input.clear();
+        let mut input = String::new();
         io::stdin().read_line(&mut input).expect("read from stdin");
         let command = parse_line(&input.as_str()).into_owned();
 
